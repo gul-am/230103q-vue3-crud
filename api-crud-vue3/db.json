@@ -1,0 +1,5 @@
+{
+    "posts": [
+      { "id": 1, "title": "Quasar Crude with vue", "author": "Gulamo Amade", "content": "Este e um exercio sobre crud usando quasar e json" }
+    ]
+  }
