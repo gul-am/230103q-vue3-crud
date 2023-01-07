@@ -3,61 +3,45 @@
 
     <q-table
       title="Treats"
-      :rows="rows"
+      :rows="posts"
       :columns="columns"
       row-key="name"
-      v-model:pagination="pagination"
-      hide-pagination
+
     />
 
   </q-page>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
+import { api } from 'boot/axios'
 
-const columns = [
-  {
-    name: 'desc',
-    required: true,
-    label: 'Dessert (100g serving)',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true
-  },
-  { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-  { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-  { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-  { name: 'protein', label: 'Protein (g)', field: 'protein' }
-]
-
-const rows = [
-  {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0
-  }
-
-]
-
-export default ({
+export default defineComponent({
+  name: 'IndexPage',
   setup () {
-    const pagination = ref({
-      sortBy: 'desc',
-      descending: false,
-      page: 2,
-      rowsPerPage: 3
+    const posts = ref([])
+    const columns = [
+      { name: 'id', field: 'id', label: 'Id', sortable: true, align: 'left' },
+      { name: 'title', field: 'title', label: 'Titulo', sortable: true, align: 'left' },
+      { name: 'author', field: 'author', label: 'Autor', sortable: true, align: 'left' }
+    ]
+
+    onMounted(() => {
+      getPosts()
     })
 
-    return {
-      pagination,
-      columns,
-      rows,
+    const getPosts = async () => {
+      try {
+        const { data } = await api.get('http://localhost:3000/posts')
+        posts.value = data
+      } catch (error) {
 
-      pagesNumber: computed(() => Math.ceil(rows.length / pagination.value.rowsPerPage))
+      }
+    }
+
+    return {
+      posts,
+      columns
     }
   }
 })
