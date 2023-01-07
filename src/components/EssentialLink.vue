@@ -2,6 +2,7 @@
   <q-item
     clickable
     :to="route"
+    exact
   >
     <q-item-section
       v-if="icon"
