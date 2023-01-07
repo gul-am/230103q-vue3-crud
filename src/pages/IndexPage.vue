@@ -32,10 +32,10 @@ export default defineComponent({
 
     const getPosts = async () => {
       try {
-        const { data } = await api.get('http://localhost:3000/posts')
+        const { data } = await api.get('posts')
         posts.value = data
       } catch (error) {
-
+        console.error(error)
       }
     }
 
