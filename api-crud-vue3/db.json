@@ -1,12 +1,16 @@
 {
-    "posts": [
-      { "id": 1,
-        "title": "Quasar Crud ",
-        "author": "Gulamo",
-        "content": "Este e um exercio sobre crud com REST API" },
-        { "id": 2,
-        "title": "Crud with vue",
-        "author": "Amade",
-        "content": "Este e um exercio sobre crud usando quasar e json" }
-    ]
-  }
+  "posts": [
+    {
+      "id": 1,
+      "title": "Quasar Crud ",
+      "author": "Gulamo",
+      "content": "Este e um exercio sobre crud com REST API"
+    },
+    {
+      "id": 2,
+      "title": "Crud with vue",
+      "author": "Amade",
+      "content": "Este e um exercio sobre crud usando quasar e json"
+    }
+  ]
+}
