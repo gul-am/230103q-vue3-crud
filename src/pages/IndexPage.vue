@@ -33,7 +33,7 @@ export default defineComponent({
 
     const getPosts = async () => {
       try {
-        const { data } = await list()
+        const data = await list()
         posts.value = data
       } catch (error) {
         console.error(error)
