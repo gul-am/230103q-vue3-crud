@@ -14,12 +14,13 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
-import { api } from 'boot/axios'
+import postService from 'src/services/posts'
 
 export default defineComponent({
   name: 'IndexPage',
   setup () {
     const posts = ref([])
+    const { list } = postService()
     const columns = [
       { name: 'id', field: 'id', label: 'Id', sortable: true, align: 'left' },
       { name: 'title', field: 'title', label: 'Titulo', sortable: true, align: 'left' },
@@ -32,7 +33,7 @@ export default defineComponent({
 
     const getPosts = async () => {
       try {
-        const { data } = await api.get('posts')
+        const { data } = await list()
         posts.value = data
       } catch (error) {
         console.error(error)
