@@ -1,9 +1,9 @@
 import useApi from 'src/composables/UseApi'
 
 export default function postService () {
-  const ( list, post, update, remove ) = useApi('posts')
+  const { list, post, update, remove } = useApi('posts')
 
-  return{
+  return {
     list,
     post,
     update,
