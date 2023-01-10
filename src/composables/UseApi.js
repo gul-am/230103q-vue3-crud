@@ -30,7 +30,7 @@ export default function useApi (url) {
 
   const remove = async (id) => {
     try {
-      const { data } = await api.delete('posts/$(id)')
+      const { data } = await api.delete('$(url)/$(form.id)')
       return data
     } catch (error) {
       throw new Error(error)
