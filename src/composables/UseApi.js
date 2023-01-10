@@ -21,7 +21,7 @@ export default function useApi (url) {
 
   const update = async (form) => {
     try {
-      const { data } = await api.put('$(url)/$(form.id)', form)
+      const { data } = await api.put(`${url}/${form.id}`, form)
       return data
     } catch (error) {
       throw new Error(error)
@@ -30,7 +30,7 @@ export default function useApi (url) {
 
   const remove = async (id) => {
     try {
-      const { data } = await api.delete('$(url)/$(form.id)')
+      const { data } = await api.delete(`${url}/${id}`)
       return data
     } catch (error) {
       throw new Error(error)
