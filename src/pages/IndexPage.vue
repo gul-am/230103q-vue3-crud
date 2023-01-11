@@ -51,9 +51,16 @@ export default defineComponent({
 
     const handleDeletePost = async (id) => {
       try {
-        await remove(id)
-        $q.notify({ message: 'Apagado com sucesso', icon: 'check', color: 'positive' })
-        await getPosts()
+        $q.dialog({
+          title: 'Remover',
+          message: 'Deseja remover este poste ?',
+          cancel: true,
+          persistent: true
+        }).onOk(async () => {
+          await remove(id)
+          $q.notify({ message: 'Apagado com sucesso', icon: 'check', color: 'positive' })
+          await getPosts()
+        })
       } catch (error) {
         $q.notify({ message: 'Erro ao apagar o post', icon: 'times', color: 'negative' })
       }
