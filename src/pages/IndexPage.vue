@@ -20,6 +20,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
 import postsService from 'src/services/posts'
+import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -32,6 +33,8 @@ export default defineComponent({
       { name: 'author', field: 'author', label: 'Autor', sortable: true, align: 'left' },
       { name: 'actions', field: 'actions', label: 'Acoes', align: 'right' }
     ]
+
+    const $q = useQuasar()
 
     onMounted(() => {
       getPosts()
@@ -49,10 +52,10 @@ export default defineComponent({
     const handleDeletePost = async (id) => {
       try {
         await remove(id)
-        alert('apagado com sucesso')
+        $q.notify({ message: 'Apagado com sucesso', icon: 'check', color: 'positive' })
         await getPosts()
       } catch (error) {
-        alert(error)
+        $q.notify({ message: 'Erro ao apagar o post', icon: 'times', color: 'negative' })
       }
     }
 
