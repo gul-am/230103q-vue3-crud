@@ -7,12 +7,6 @@
       "content": "Este e um exercio sobre crud com REST API"
     },
     {
-      "id": 2,
-      "title": "Crud with vue",
-      "author": "Amade",
-      "content": "Este e um exercio sobre crud usando quasar e json"
-    },
-    {
       "id": 3,
       "title": "vue",
       "author": "Amade",
@@ -29,6 +23,12 @@
       "title": "vue with ",
       "author": "Amade",
       "content": "Este e um exercio sobre crud usando quasar e json"
+    },
+    {
+      "title": "Teste do mecanismo de insercao ",
+      "content": "Testamos aqui o processo de salvamento dos inserts",
+      "author": "Gula",
+      "id": 6
     }
   ]
 }
