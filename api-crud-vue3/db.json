@@ -11,18 +11,6 @@
       "title": "Crud with vue",
       "author": "Amade",
       "content": "Este e um exercio sobre crud usando quasar e json"
-    },
-    {
-      "id": 3,
-      "title": "vue",
-      "author": "Amade",
-      "content": "Este e um exercio sobre crud usando quasar e json"
-    },
-    {
-      "id": 4,
-      "title": "Crud vue",
-      "author": "Amade",
-      "content": "Este e um exercio sobre crud usando quasar e json"
     }
   ]
 }
