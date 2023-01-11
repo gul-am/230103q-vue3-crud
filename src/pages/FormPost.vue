@@ -55,11 +55,15 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import postsService from 'src/services/posts'
+import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'FormPost',
   setup () {
     const { post } = postsService()
+    const $q = useQuasar()
+    const router = useRouter()
     const form = ref({
       title: '',
       content: '',
@@ -69,8 +73,10 @@ export default defineComponent({
     const onSubmit = async () => {
       try {
         await post(form.value)
+        $q.notify({ message: 'Post salvo com sucesso', icon: 'check', color: 'positive' })
+        router.push({ name: 'home' })
       } catch (error) {
-        console.error(error)
+        $q.notify({ message: 'Apagado com sucesso', icon: 'times', color: 'negative' })
       }
     }
 
