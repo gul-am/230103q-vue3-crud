@@ -5,6 +5,30 @@
       "title": "Quasar Crud ",
       "author": "Gulamo",
       "content": "Este e um exercio sobre crud com REST API"
+    },
+    {
+      "id": 3,
+      "title": "vue",
+      "author": "Amade",
+      "content": "Este e um exercio sobre crud usando quasar e json"
+    },
+    {
+      "id": 4,
+      "title": "Crud vue",
+      "author": "Amade",
+      "content": "Este e um exercio sobre crud usando quasar e json"
+    },
+    {
+      "id": 5,
+      "title": "vue with ",
+      "author": "Amade",
+      "content": "Este e um exercio sobre crud usando quasar e json"
+    },
+    {
+      "title": "Teste do mecanismo de insercao ",
+      "content": "Testamos aqui o processo de salvamento dos inserts",
+      "author": "Gula",
+      "id": 6
     }
   ]
 }
