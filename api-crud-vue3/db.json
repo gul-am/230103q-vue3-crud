@@ -7,9 +7,9 @@
       "content": "Este e um exercio sobre crud com REST API"
     },
     {
-      "title": "Este curso vale ouro",
-      "content": "Esta e um declaracao feita pelo estudante deste curso",
-      "author": "Amade",
+      "title": "Curso de Angular",
+      "content": "Este curso e de Angular from zerro to hero",
+      "author": "Gulamo Amade",
       "id": 2
     },
     {
@@ -17,6 +17,12 @@
       "content": "Este e um optimo curso para pessoas que querem realmente ingrenar na area de desenvolvimento de <b>softwares</b>",
       "author": "Gulamo",
       "id": 3
+    },
+    {
+      "title": "Curso de Node Js",
+      "content": "Este curso e especifico para programadares Back-end",
+      "author": "Domingos",
+      "id": 4
     }
   ]
 }
