@@ -1,10 +1,6 @@
 <template>
   <q-page padding>
-    <q-form
-      @submit="onSubmit"
-      @reset="onReset"
-      class="row q-col-gutter-sm"
-    >
+    <q-form @submit="onSubmit" class="row q-col-gutter-sm">
     <q-input
         outlined
         v-model="form.title"
@@ -53,36 +49,57 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import postsService from 'src/services/posts'
 import { useQuasar } from 'quasar'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'FormPost',
   setup () {
-    const { post } = postsService()
+    const { post, getById, update } = postsService()
     const $q = useQuasar()
     const router = useRouter()
+    const route = useRoute()
     const form = ref({
       title: '',
       content: '',
       author: ''
     })
 
+    onMounted(async () => {
+      if (route.params.id) {
+        getPost(route.params.id)
+      }
+    })
+
+    const getPost = async (id) => {
+      try {
+        const response = await getById(id)
+        form.value = response
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     const onSubmit = async () => {
       try {
-        await post(form.value)
-        $q.notify({ message: 'Post salvo com sucesso', icon: 'check', color: 'positive' })
+        if (form.value.id) {
+          await update(form.value)
+        } else {
+          await post(form.value)
+        }
+        $q.notify({ message: 'Post editado com sucesso', icon: 'check', color: 'positive' })
         router.push({ name: 'home' })
       } catch (error) {
-        $q.notify({ message: 'Apagado com sucesso', icon: 'times', color: 'negative' })
+        $q.notify({ message: 'Erro ao editar o post', icon: 'times', color: 'negative' })
       }
     }
 
     return {
       form,
-      onSubmit
+      onSubmit,
+      getPost
     }
   }
 })
